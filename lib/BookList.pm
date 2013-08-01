@@ -6,6 +6,9 @@ use parent qw/Amon2/;
 our $VERSION='3.85';
 use 5.008001;
 
+use Teng::Schema::Loader;
+use Teng;
+
 __PACKAGE__->load_plugin(qw/DBI/);
 
 # initialize database
@@ -21,6 +24,20 @@ sub setup_schema {
         next unless $stmt =~ /\S/;
         $dbh->do($stmt) or die $dbh->errstr();
     }
+}
+
+# set up Teng ORM
+sub db {
+    my $self = shift;
+
+    unless ( defined $self->{db} ) {
+        my $dbh = $self->dbh();
+        $self->{db} = Teng::Schema::Loader->load(
+            namespace => 'BookList::DB',
+            dbh       => $dbh,
+        );
+    }
+    return $self->{db};
 }
 
 1;
