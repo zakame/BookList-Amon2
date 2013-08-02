@@ -5,6 +5,9 @@ use utf8;
 use parent qw/BookList Amon2::Web/;
 use File::Spec;
 
+use BookList::Web::C::Root;
+use BookList::Web::C::Books;
+
 # dispatcher
 use BookList::Web::Dispatcher;
 sub dispatch {
