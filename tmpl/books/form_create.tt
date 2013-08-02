@@ -1,0 +1,30 @@
+[% WRAPPER 'include/layout.tt' WITH title = 'Manual Book Form Create' %]
+<form class="form-horizontal" method="post" action="[% uri_for('/books/form_create_do') %]">
+  <fieldset>
+    <legend>Add a Book</legend>
+    <div class="control-group">
+      <label class="control-label" for="inputTitle">Title</label>
+      <div class="controls">
+        <input type="text" id="inputTitle" name="title" placeholder="New Book" />
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="inputRating">Rating</label>
+      <div class="controls">
+        <input type="text" id="inputRating" name="rating" placeholder="Score"/>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="inputAID">Author ID</label>
+      <div class="controls">
+        <input type="text" id="inputAID" name="author_id" placeholder="Author ID" />
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <button type="submit" class="btn">Submit</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
+[% END %]
