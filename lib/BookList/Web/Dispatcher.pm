@@ -15,4 +15,10 @@ post '/account/logout' => sub {
     return $c->redirect('/');
 };
 
+get '/books/list' => sub {
+    my ($c) = @_;
+    return $c->render( 'books/list.tt',
+        { books => [ $c->db->search( 'book', {} ) ] } );
+};
+
 1;
