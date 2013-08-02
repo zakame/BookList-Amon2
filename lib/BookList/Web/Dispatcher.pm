@@ -21,4 +21,18 @@ get '/books/list' => sub {
         { books => [ $c->db->search( 'book', {} ) ] } );
 };
 
+get '/books/url_create/:title/:rating/:author_id' => sub {
+    my ( $c, $args ) = @_;
+
+    my $book = $c->db->insert(
+        book => {
+            title  => $args->{title},
+            rating => $args->{rating},
+        }
+    );
+    $book->add_to_book_author( { author_id => $args->{author_id} } );
+
+    return $c->render( 'books/create_done.tt', { book => $book } );
+};
+
 1;

@@ -1,0 +1,14 @@
+[% WRAPPER 'include/layout.tt' %]
+<h1>Book Created</h1>
+<div class="alert alert-success">
+  <strong>すごい！</strong>
+  Added book '[% book.title %]'
+  by '[% book.authors.0.last_name %]'
+  with a rating of [% book.rating %].
+</div>
+<p><a href="[% uri_for('/books/list') %]">Return to list</a></p>
+
+<pre>
+  [% book | dump %]
+</pre>
+[% END %]

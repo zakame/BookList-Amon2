@@ -20,4 +20,12 @@ WHERE me.book_id = ?
     )->all;
 }
 
+sub add_to_book_author {
+    my ( $self, $args ) = @_;
+    my $book_id = $self->id;
+
+    return $self->handle->insert( book_author =>
+            { author_id => $args->{author_id}, book_id => $book_id } );
+}
+
 1;
