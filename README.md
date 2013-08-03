@@ -20,10 +20,15 @@ obviously no closer ;)
 
 ## How do I run this?
 
-If you have Amon2 installed in your Perl system already, there's nothing
-to do other than `plackup`.  If you don't have Amon2 (or you feel you
-need to do some prerequisite installing from the CPAN,) just do `cpanm
---installdeps .` at the root of this project.
+If you have Amon2, [Teng][Teng], and [Log::Minimal][LM] installed in
+your Perl system already, there's nothing to do other than `plackup`.
+If you don't have Amon2 (or you feel you need to do some prerequisite
+installing from the CPAN,) just do `cpanm --installdeps .` at the root
+of this project.
+
+[Teng]: http://metacpan.org/module/Teng
+
+[LM]: http://metacpan.org/module/Log::Minimal
 
 If you have a [Carton][Carton] setup (especially within a perlbrew lib,
 when you have multiple Carton projects on,) you can switch to that setup
@@ -60,3 +65,7 @@ Furthermore, if you're running the HEAD of this app, you'd want to run
 an additional SQLite script for the altered tables:
 
     $ sqlite3 db/development.db < sql/sqlite-alter-datetime.sql
+
+(And yes, you should have [SQLite][SQLite] installed at any rate.)
+
+[SQLite]: http://www.sqlite.org
