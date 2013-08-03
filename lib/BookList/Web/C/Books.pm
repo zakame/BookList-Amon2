@@ -17,7 +17,7 @@ sub _object {
 
     $class->_base($c);
 
-    $c->{object} = $c->db->single( book => { id => $book_id } );
+    $c->{object} = $c->db->find_book($book_id);
     croak "Book $book_id not found!" if !$c->{object};
 
     debugf( '*** INSIDE OBJECT METHOD for obj id=%s ***', $book_id );
@@ -29,7 +29,7 @@ sub list {
 
     return $c->render(
         'books/list.tt',
-        {   books      => [ $c->db->search( 'book', {} ) ],
+        {   books      => [ $c->db->find_all_books ],
             status_msg => $status_msg
         }
     );
@@ -40,12 +40,7 @@ sub url_create {
 
     $class->_base($c);
 
-    my $book = $c->db->insert(
-        book => {
-            title  => $args->{title},
-            rating => $args->{rating},
-        }
-    );
+    my $book = $c->db->create_book( $args->{title}, $args->{rating} );
     $book->add_to_book_author( { author_id => $args->{author_id} } );
 
     return $c->render( 'books/create_done.tt', { book => $book } );
@@ -68,8 +63,7 @@ sub form_create_do {
     my $rating    = $c->req->param('rating')    || 'N/A';
     my $author_id = $c->req->param('author_id') || '1';
 
-    my $book
-        = $c->db->insert( book => { title => $title, rating => $rating } );
+    my $book = $c->db->create_book( $title, $rating );
     $book->add_to_book_author( { author_id => $author_id } );
 
     return $c->render( 'books/create_done.tt', { book => $book } );
