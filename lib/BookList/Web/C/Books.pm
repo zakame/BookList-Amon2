@@ -12,15 +12,15 @@ sub _base {
     debugf( '*** INSIDE BASE METHOD from %s ***', $c->req->path_info );
 }
 
-sub _object {
+sub _book {
     my ( $class, $c, $book_id ) = @_;
 
     $class->_base($c);
 
-    $c->{object} = $c->db->find_book($book_id);
-    croak "Book $book_id not found!" if !$c->{object};
+    $c->{book} = $c->db->find_book($book_id);
+    croak "Book $book_id not found!" if !$c->{book};
 
-    debugf( '*** INSIDE OBJECT METHOD for obj id=%s ***', $book_id );
+    debugf( '*** INSIDE BOOK OBJECT METHOD for obj id=%s ***', $book_id );
 }
 
 sub list {
@@ -74,9 +74,9 @@ sub delete {
 
     my $book_id = $args->{book_id};
 
-    $class->_object( $c, $book_id );
+    $class->_book( $c, $book_id );
 
-    $c->{object}->delete;
+    $c->{book}->delete;
     $c->{status_msg} = 'Book deleted.';
 
     return $c->redirect( '/books/list', { status_msg => $c->{status_msg} } );
