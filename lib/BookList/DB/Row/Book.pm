@@ -28,4 +28,12 @@ sub add_to_book_author {
             { author_id => $args->{author_id}, book_id => $book_id } );
 }
 
+sub delete {
+    my $self    = shift;
+    my $book_id = $self->id;
+
+    $self->handle->delete( book_author => { book_id => $book_id } );
+    return $self->SUPER::delete;
+}
+
 1;

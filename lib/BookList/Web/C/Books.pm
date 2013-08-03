@@ -15,10 +15,27 @@ __PACKAGE__->add_trigger(
     }
 );
 
+__PACKAGE__->add_trigger(
+    object => sub {
+        my ( $class, $c, $book_id ) = @_;
+
+        $class->call_trigger( 'base', $c );
+
+        $c->{object} = $c->db->single( book => { id => $book_id } );
+        croak "Book $book_id not found!" if !$c->{object};
+
+        debugf( '*** INSIDE OBJECT TRIGGER for obj id=%s ***', $book_id );
+    }
+);
+
 sub list {
     my ( $class, $c ) = @_;
-    return $c->render( 'books/list.tt',
-        { books => [ $c->db->search( 'book', {} ) ] } );
+    return $c->render(
+        'books/list.tt',
+        {   books      => [ $c->db->search( 'book', {} ) ],
+            status_msg => $c->{status_msg}
+        }
+    );
 }
 
 sub url_create {
@@ -39,11 +56,16 @@ sub url_create {
 
 sub form_create {
     my ( $class, $c ) = @_;
+
+    $class->call_trigger( 'base', $c );
+
     return $c->render('books/form_create.tt');
 }
 
 sub form_create_do {
     my ( $class, $c ) = @_;
+
+    $class->call_trigger( 'base', $c );
 
     my $title     = $c->req->param('title')     || 'N/A';
     my $rating    = $c->req->param('rating')    || 'N/A';
@@ -54,6 +76,19 @@ sub form_create_do {
     $book->add_to_book_author( { author_id => $author_id } );
 
     return $c->render( 'books/create_done.tt', { book => $book } );
+}
+
+sub delete {
+    my ( $class, $c, $args ) = @_;
+
+    my $book_id = $args->{book_id};
+
+    $class->call_trigger( 'object', $c, $book_id );
+
+    $c->{object}->delete;
+    $c->{status_msg} = 'Book deleted.';
+
+    return $class->list($c);
 }
 
 1;

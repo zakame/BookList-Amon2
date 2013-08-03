@@ -1,11 +1,17 @@
 [% WRAPPER 'include/layout.tt' %]
 <h1>Book List</h1>
+[% IF status_msg %]
+<div class="alert alert-success">
+  [% status_msg %]
+</div>
+[% END %]
 <table class="table table-condensed">
   <thead>
     <tr>
       <th>Title</th>
       <th>Author(s)</th>
       <th>Rating</th>
+      <th>Links</th>
     </tr>
   </thead>
   <tbody>
@@ -20,6 +26,9 @@
         [%- END %]
       </td>
       <td>[% book.rating %]</td>
+      <td>
+        <a href="[% uri_for( '/books/delete/' _ book.id ) %]">Delete</a>
+      </td>
     </tr>
     [%- END %]
   </tbody>
