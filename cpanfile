@@ -13,6 +13,7 @@ requires 'Test::WWW::Mechanize::PSGI'     , '0';
 requires 'Time::Piece'                    , '1.20';
 
 requires 'Teng', '0.19';
+requires 'Log::Minimal', '0.15';
 
 on 'configure' => sub {
    requires 'Module::Build', '0.38';

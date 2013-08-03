@@ -5,6 +5,16 @@ use warnings;
 
 use Carp;
 
+use Class::Trigger;
+use Log::Minimal;
+
+__PACKAGE__->add_trigger(
+    base => sub {
+        my ( $class, $c ) = @_;
+        debugf( '*** INSIDE BASE TRIGGER from %s ***', $c->req->path_info );
+    }
+);
+
 sub list {
     my ( $class, $c ) = @_;
     return $c->render( 'books/list.tt',
@@ -13,6 +23,8 @@ sub list {
 
 sub url_create {
     my ( $class, $c, $args ) = @_;
+
+    $class->call_trigger( 'base', $c );
 
     my $book = $c->db->insert(
         book => {
