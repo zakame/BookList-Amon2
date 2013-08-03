@@ -22,7 +22,9 @@
                     <ul class="nav">
                         <li class="active"><a href="/">Home</a></li>
                         <li><a href="/books/list">List</a></li>
-                        <li><a href="/books/form_create">Create</a></li>
+                        <li><a href="/books/list_recent/15">List Recent (15)</a></li>
+                        <li><a href="/books/url_create/TCPIP_Illustrated_Vol-2/5/4">URL Create</a></li>
+                        <li><a href="/books/form_create">Form Create</a></li>
                     </ul>
                 </div>
             </div>
