@@ -14,6 +14,7 @@ requires 'Time::Piece'                    , '1.20';
 
 requires 'Teng', '0.19';
 requires 'Log::Minimal', '0.15';
+requires 'HTTP::Date', '6.02';
 
 on 'configure' => sub {
    requires 'Module::Build', '0.38';
