@@ -30,10 +30,12 @@ __PACKAGE__->add_trigger(
 
 sub list {
     my ( $class, $c ) = @_;
+    my $status_msg = $c->{status_msg} || $c->req->param('status_msg');
+
     return $c->render(
         'books/list.tt',
         {   books      => [ $c->db->search( 'book', {} ) ],
-            status_msg => $c->{status_msg}
+            status_msg => $status_msg
         }
     );
 }
@@ -88,7 +90,7 @@ sub delete {
     $c->{object}->delete;
     $c->{status_msg} = 'Book deleted.';
 
-    return $class->list($c);
+    return $c->redirect( '/books/list', { status_msg => $c->{status_msg} } );
 }
 
 1;
