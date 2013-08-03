@@ -35,6 +35,17 @@ sub list {
     );
 }
 
+sub list_recent {
+    my ( $class, $c, $args ) = @_;
+    my $secs = $args->{mins} * 60;
+
+    $class->_base($c);
+
+    my @books = $c->db->find_books_created_after( time - $secs );
+
+    return $c->render( 'books/list.tt', { books => \@books } );
+}
+
 sub url_create {
     my ( $class, $c, $args ) = @_;
 
