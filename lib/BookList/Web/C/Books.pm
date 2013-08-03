@@ -5,28 +5,23 @@ use warnings;
 
 use Carp;
 
-use Class::Trigger;
 use Log::Minimal;
 
-__PACKAGE__->add_trigger(
-    base => sub {
-        my ( $class, $c ) = @_;
-        debugf( '*** INSIDE BASE TRIGGER from %s ***', $c->req->path_info );
-    }
-);
+sub _base {
+    my ( $class, $c ) = @_;
+    debugf( '*** INSIDE BASE METHOD from %s ***', $c->req->path_info );
+}
 
-__PACKAGE__->add_trigger(
-    object => sub {
-        my ( $class, $c, $book_id ) = @_;
+sub _object {
+    my ( $class, $c, $book_id ) = @_;
 
-        $class->call_trigger( 'base', $c );
+    $class->_base($c);
 
-        $c->{object} = $c->db->single( book => { id => $book_id } );
-        croak "Book $book_id not found!" if !$c->{object};
+    $c->{object} = $c->db->single( book => { id => $book_id } );
+    croak "Book $book_id not found!" if !$c->{object};
 
-        debugf( '*** INSIDE OBJECT TRIGGER for obj id=%s ***', $book_id );
-    }
-);
+    debugf( '*** INSIDE OBJECT METHOD for obj id=%s ***', $book_id );
+}
 
 sub list {
     my ( $class, $c ) = @_;
@@ -43,7 +38,7 @@ sub list {
 sub url_create {
     my ( $class, $c, $args ) = @_;
 
-    $class->call_trigger( 'base', $c );
+    $class->_base($c);
 
     my $book = $c->db->insert(
         book => {
@@ -59,7 +54,7 @@ sub url_create {
 sub form_create {
     my ( $class, $c ) = @_;
 
-    $class->call_trigger( 'base', $c );
+    $class->_base($c);
 
     return $c->render('books/form_create.tt');
 }
@@ -67,7 +62,7 @@ sub form_create {
 sub form_create_do {
     my ( $class, $c ) = @_;
 
-    $class->call_trigger( 'base', $c );
+    $class->_base($c);
 
     my $title     = $c->req->param('title')     || 'N/A';
     my $rating    = $c->req->param('rating')    || 'N/A';
@@ -85,7 +80,7 @@ sub delete {
 
     my $book_id = $args->{book_id};
 
-    $class->call_trigger( 'object', $c, $book_id );
+    $class->_object( $c, $book_id );
 
     $c->{object}->delete;
     $c->{status_msg} = 'Book deleted.';
