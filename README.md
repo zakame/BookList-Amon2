@@ -69,3 +69,12 @@ an additional SQLite script for the altered tables:
 (And yes, you should have [SQLite][SQLite] installed at any rate.)
 
 [SQLite]: http://www.sqlite.org
+
+## How should I study this?
+
+Please look at the commits, they tell much of the story behind growing
+this web app.  Later on, I will dot the history with tags that
+correspond with some of the steps in Catalyst::Manual::Tutorial.  I will
+also probably add more comments in the code itself, though I think I've
+written my code clearly enough (but if you think otherwise, don't be shy
+to fork away and send me a pull request ;)
