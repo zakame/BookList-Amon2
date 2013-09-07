@@ -18,7 +18,6 @@ requires 'HTTP::Date', '6.02';
 
 on 'configure' => sub {
    requires 'Module::Build', '0.38';
-   requires 'Module::CPANfile', '0.9010';
 };
 
 on 'test' => sub {
