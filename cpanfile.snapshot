@@ -1,9 +1,9 @@
 # carton snapshot format: version 1.0
 DISTRIBUTIONS
-  Amon2-4.01
-    pathname: T/TO/TOKUHIROM/Amon2-4.01.tar.gz
+  Amon2-3.85
+    pathname: T/TO/TOKUHIROM/Amon2-3.85.tar.gz
     provides:
-      Amon2 4.01
+      Amon2 3.85
       Amon2::Config::Simple undef
       Amon2::ContextGuard undef
       Amon2::Declare undef
@@ -25,9 +25,9 @@ DISTRIBUTIONS
       Amon2::Setup::Asset::StrftimeJS undef
       Amon2::Setup::Asset::jQuery undef
       Amon2::Setup::Flavor undef
-      Amon2::Setup::Flavor::Basic 4.01
+      Amon2::Setup::Flavor::Basic 3.85
       Amon2::Setup::Flavor::Large undef
-      Amon2::Setup::Flavor::Minimum 4.01
+      Amon2::Setup::Flavor::Minimum 3.85
       Amon2::Setup::VC::Git undef
       Amon2::Trigger undef
       Amon2::Util undef
@@ -41,31 +41,18 @@ DISTRIBUTIONS
     requirements:
       CPAN::Meta 0
       CPAN::Meta::Prereqs 0
-      Encode 0
       Exporter 0
-      ExtUtils::CBuilder 0
-      File::Temp 0
-      Getopt::Long 0
-      HTML::FillInForm::Lite 0
-      HTTP::Headers 0
-      Hash::MultiValue 0
-      JSON 2
       MRO::Compat 0
       Module::Build 0.38
       Plack 0.9982
-      Plack::Request 0
-      Plack::Response 0
       Plack::Session 0
-      Plack::Util 0
-      Pod::Usage 0
       Router::Simple 0.14
       Router::Simple::Sinatraish 0.02
-      Scalar::Util 0
+      Test::More 0.98
+      Test::Requires 0.06
       Text::Xslate 1.6001
       Try::Tiny 0.06
       URI 1.54
-      URI::Escape 0
-      URI::QueryParam 0
       parent 0.223
       perl 5.008001
   Amon2-DBI-0.32
@@ -97,6 +84,18 @@ DISTRIBUTIONS
       POSIX 0
       Time::Local 0
       perl 5.008005
+  Carp-1.26
+    pathname: Z/ZE/ZEFRAM/Carp-1.26.tar.gz
+    provides:
+      Carp 1.26
+      Carp::Heavy 1.26
+    requirements:
+      Exporter 0
+      ExtUtils::MakeMaker 0
+      IPC::Open3 1.0103
+      Test::More 0
+      strict 0
+      warnings 0
   Carp-Assert-0.20
     pathname: M/MS/MSCHWERN/Carp-Assert-0.20.tar.gz
     provides:
@@ -334,10 +333,10 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 6.36
       Test::More 0.96
       Try::Tiny 0
-  Data-MessagePack-0.48
-    pathname: G/GF/GFUJI/Data-MessagePack-0.48.tar.gz
+  Data-MessagePack-0.47
+    pathname: G/GF/GFUJI/Data-MessagePack-0.47.tar.gz
     provides:
-      Data::MessagePack 0.48
+      Data::MessagePack 0.47
       Data::MessagePack::Boolean undef
       Data::MessagePack::PP undef
     requirements:
@@ -530,6 +529,47 @@ DISTRIBUTIONS
       Test::More 0
       strict 0
       warnings 0
+  ExtUtils-MakeMaker-6.72
+    pathname: B/BI/BINGOS/ExtUtils-MakeMaker-6.72.tar.gz
+    provides:
+      DynaLoader 6.72
+      ExtUtils::Command::MM 6.72
+      ExtUtils::Liblist 6.72
+      ExtUtils::Liblist::Kid 6.72
+      ExtUtils::MM 6.72
+      ExtUtils::MM_AIX 6.72
+      ExtUtils::MM_Any 6.72
+      ExtUtils::MM_BeOS 6.72
+      ExtUtils::MM_Cygwin 6.72
+      ExtUtils::MM_DOS 6.72
+      ExtUtils::MM_Darwin 6.72
+      ExtUtils::MM_MacOS 6.72
+      ExtUtils::MM_NW5 6.72
+      ExtUtils::MM_OS2 6.72
+      ExtUtils::MM_QNX 6.72
+      ExtUtils::MM_UWIN 6.72
+      ExtUtils::MM_Unix 6.72
+      ExtUtils::MM_VMS 6.72
+      ExtUtils::MM_VOS 6.72
+      ExtUtils::MM_Win32 6.72
+      ExtUtils::MM_Win95 6.72
+      ExtUtils::MY 6.72
+      ExtUtils::MakeMaker 6.72
+      ExtUtils::MakeMaker::Config 6.72
+      ExtUtils::MakeMaker::_version 6.72
+      ExtUtils::Mkbootstrap 6.72
+      ExtUtils::Mksymlists 6.72
+      ExtUtils::testlib 6.72
+      MM 6.72
+      MY 6.72
+      in 6.72
+    requirements:
+      Data::Dumper 0
+      DirHandle 0
+      File::Basename 0
+      File::Spec 0.8
+      Pod::Man 0
+      perl 5.006
   File-Copy-Recursive-0.38
     pathname: D/DM/DMUEY/File-Copy-Recursive-0.38.tar.gz
     provides:
@@ -562,23 +602,14 @@ DISTRIBUTIONS
       File::Spec 0.80
       Test::More 0.47
       perl 5.005
-  File-ShareDir-Install-0.05
-    pathname: G/GW/GWYN/File-ShareDir-Install-0.05.tar.gz
+  File-ShareDir-Install-0.04
+    pathname: G/GW/GWYN/File-ShareDir-Install-0.04.tar.gz
     provides:
-      File::ShareDir::Install 0.05
+      File::ShareDir::Install 0.04
     requirements:
       ExtUtils::MakeMaker 6.11
       File::Spec 0
       IO::Dir 0
-  File-Temp-0.2301
-    pathname: D/DA/DAGOLDEN/File-Temp-0.2301.tar.gz
-    provides:
-      File::Temp 0.2301
-    requirements:
-      ExtUtils::MakeMaker 6.30
-      Fcntl 1.03
-      File::Path 2.06
-      File::Spec 0.8
   Filesys-Notify-Simple-0.12
     pathname: M/MI/MIYAGAWA/Filesys-Notify-Simple-0.12.tar.gz
     provides:
@@ -824,18 +855,16 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 6.52
       Test::More 0.82
       perl 5.00503
-  Log-Minimal-0.16
-    pathname: K/KA/KAZEBURO/Log-Minimal-0.16.tar.gz
+  Log-Minimal-0.15
+    pathname: K/KA/KAZEBURO/Log-Minimal-0.15.tar.gz
     provides:
-      Log::Minimal 0.16
+      Log::Minimal 0.15
     requirements:
-      CPAN::Meta 0
-      CPAN::Meta::Prereqs 0
       Data::Dumper 0
-      ExtUtils::CBuilder 0
-      Module::Build 0.38
+      ExtUtils::MakeMaker 6.36
       Scalar::Util 0
       Term::ANSIColor 0
+      Test::More 0.98
   MRO-Compat-0.12
     pathname: B/BO/BOBTFISH/MRO-Compat-0.12.tar.gz
     provides:
@@ -844,11 +873,11 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 6.59
       Test::More 0.47
       perl 5.006
-  Module-Build-Tiny-0.026
-    pathname: L/LE/LEONT/Module-Build-Tiny-0.026.tar.gz
+  Module-Build-Tiny-0.025
+    pathname: L/LE/LEONT/Module-Build-Tiny-0.025.tar.gz
     provides:
       DistGen 0.01
-      Module::Build::Tiny 0.026
+      Module::Build::Tiny 0.025
     requirements:
       CPAN::Meta 0
       Exporter 5.57
@@ -960,19 +989,20 @@ DISTRIBUTIONS
       IO::Select 0
       IO::Socket::INET 0
       perl 5.006002
-  Package-Stash-0.36
-    pathname: D/DO/DOY/Package-Stash-0.36.tar.gz
+  Package-Stash-0.35
+    pathname: D/DO/DOY/Package-Stash-0.35.tar.gz
     provides:
-      Package::Stash 0.36
-      Package::Stash::PP 0.36
+      CompileTime undef
+      Package::Stash 0.35
+      Package::Stash::PP 0.35
+      inc::DistMeta undef
+      inc::MMPackageStash undef
     requirements:
       B 0
       Carp 0
-      Config 0
       Dist::CheckConflicts 0.02
       ExtUtils::MakeMaker 6.30
       File::Find 0
-      File::Spec 0
       File::Temp 0
       Getopt::Long 0
       Module::Implementation 0.06
@@ -982,10 +1012,8 @@ DISTRIBUTIONS
       Test::Fatal 0
       Test::More 0.88
       Test::Requires 0
-      Text::ParseWords 0
       base 0
       constant 0
-      lib 0
       strict 0
       warnings 0
   Package-Stash-XS-0.28
@@ -1009,18 +1037,12 @@ DISTRIBUTIONS
       Scalar::Util 1.18
       Test::More 0.42
       perl 5.00503
-  Perl6-Slurp-0.051003
-    pathname: D/DC/DCONWAY/Perl6-Slurp-0.051003.tar.gz
-    provides:
-      Perl6::Slurp 0.051003
-    requirements:
-      ExtUtils::MakeMaker 0
-  Plack-1.0029
-    pathname: M/MI/MIYAGAWA/Plack-1.0029.tar.gz
+  Plack-1.0028
+    pathname: M/MI/MIYAGAWA/Plack-1.0028.tar.gz
     provides:
       HTTP::Message::PSGI undef
       HTTP::Server::PSGI undef
-      Plack 1.0029
+      Plack 1.0028
       Plack::App::CGIBin undef
       Plack::App::Cascade undef
       Plack::App::Directory undef
@@ -1040,6 +1062,8 @@ DISTRIBUTIONS
       Plack::Handler::CGI::Writer undef
       Plack::Handler::FCGI undef
       Plack::Handler::HTTP::Server::PSGI undef
+      Plack::Handler::HTTP::Server::Simple undef
+      Plack::Handler::HTTP::Server::Simple::PSGIServer undef
       Plack::Handler::Standalone undef
       Plack::LWPish undef
       Plack::Loader undef
@@ -1079,9 +1103,9 @@ DISTRIBUTIONS
       Plack::Middleware::XFramework undef
       Plack::Middleware::XSendfile undef
       Plack::Recursive::ForwardRequest undef
-      Plack::Request 1.0029
+      Plack::Request 1.0028
       Plack::Request::Upload undef
-      Plack::Response 1.0029
+      Plack::Response 1.0028
       Plack::Runner undef
       Plack::TempBuffer undef
       Plack::Test undef
@@ -1102,11 +1126,11 @@ DISTRIBUTIONS
       Filesys::Notify::Simple 0
       HTTP::Body 1.06
       HTTP::Message 5.814
-      HTTP::Tiny 0.034
+      HTTP::Tiny 0.024
       Hash::MultiValue 0.05
       Pod::Usage 1.36
       Stream::Buffered 0.02
-      Test::TCP 2.00
+      Test::TCP 1.02
       Try::Tiny 0
       URI 1.59
       parent 0
@@ -1164,11 +1188,11 @@ DISTRIBUTIONS
       Test::More 0.98
       parent 0
       perl 5.00800
-  SQL-Interp-1.22
-    pathname: M/MA/MARKSTOS/SQL-Interp-1.22.tar.gz
+  SQL-Interp-1.21
+    pathname: M/MA/MARKSTOS/SQL-Interp-1.21.tar.gz
     provides:
-      DBIx::Interp 1.22
-      SQL::Interp 1.22
+      DBIx::Interp 1.21
+      SQL::Interp 1.21
     requirements:
       DBI 1
       Module::Build 0.38
@@ -1254,10 +1278,10 @@ DISTRIBUTIONS
       constant 0
       strict 0
       warnings 0
-  Teng-0.20
-    pathname: S/SA/SATOH/Teng-0.20.tar.gz
+  Teng-0.19
+    pathname: S/SA/SATOH/Teng-0.19.tar.gz
     provides:
-      Teng 0.20
+      Teng 0.19
       Teng::Iterator undef
       Teng::Plugin::BulkInsert undef
       Teng::Plugin::Count undef
@@ -1502,19 +1526,19 @@ DISTRIBUTIONS
       Test::More 0
       Tree::DAG_Node 1.02
       perl 5.006
-  Text-Xslate-2.0009
-    pathname: G/GF/GFUJI/Text-Xslate-2.0009.tar.gz
+  Text-Xslate-3.0.0
+    pathname: G/GF/GFUJI/Text-Xslate-3.0.0.tar.gz
     provides:
-      Text::Xslate 2.0009
+      Text::Xslate 3.0
       Text::Xslate::Bridge undef
       Text::Xslate::Bridge::Star undef
       Text::Xslate::Compiler undef
-      Text::Xslate::Engine 2.0009
+      Text::Xslate::Engine 3.0
       Text::Xslate::HashWithDefault undef
-      Text::Xslate::PP 2.0009
+      Text::Xslate::PP 3.0
       Text::Xslate::PP::Const undef
       Text::Xslate::PP::Method undef
-      Text::Xslate::PP::Opcode 2.0009
+      Text::Xslate::PP::Opcode 3.0
       Text::Xslate::PP::State undef
       Text::Xslate::PP::Type::Macro undef
       Text::Xslate::PP::Type::Pair undef
@@ -1540,24 +1564,19 @@ DISTRIBUTIONS
       XSLoader 0.02
       parent 0.221
       perl 5.008001
-  Tree-DAG_Node-1.15
-    pathname: R/RS/RSAVAGE/Tree-DAG_Node-1.15.tgz
+  Tree-DAG_Node-1.12
+    pathname: R/RS/RSAVAGE/Tree-DAG_Node-1.12.tgz
     provides:
-      Tree::DAG_Node 1.15
+      Tree::DAG_Node 1.12
     requirements:
-      File::Spec 3.4
-      File::Temp 0.2301
       Module::Build 0.38
-      Perl6::Slurp 0.051003
       Test::More 0.98
-      open 0
-      perl v5.8.1
       strict 0
       warnings 0
-  Try-Tiny-0.18
-    pathname: D/DO/DOY/Try-Tiny-0.18.tar.gz
+  Try-Tiny-0.16
+    pathname: D/DO/DOY/Try-Tiny-0.16.tar.gz
     provides:
-      Try::Tiny 0.18
+      Try::Tiny 0.16
     requirements:
       Carp 0
       Exporter 0
@@ -1627,10 +1646,10 @@ DISTRIBUTIONS
       Test 0
       Test::More 0
       perl 5.008001
-  WWW-Mechanize-1.73
-    pathname: E/ET/ETHER/WWW-Mechanize-1.73.tar.gz
+  WWW-Mechanize-1.72
+    pathname: J/JE/JESSE/WWW-Mechanize-1.72.tar.gz
     provides:
-      WWW::Mechanize 1.73
+      WWW::Mechanize 1.72
       WWW::Mechanize::Image undef
       WWW::Mechanize::Link undef
     requirements:
