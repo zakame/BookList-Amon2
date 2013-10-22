@@ -1164,20 +1164,23 @@ DISTRIBUTIONS
       Digest::SHA1 0
       Module::Build::Tiny 0.023
       Plack 0.9910
-  Router-Simple-0.14
-    pathname: T/TO/TOKUHIROM/Router-Simple-0.14.tar.gz
+  Router-Simple-0.15
+    pathname: T/TO/TOKUHIROM/Router-Simple-0.15.tar.gz
     provides:
-      Router::Simple 0.14
+      Router::Simple 0.15
       Router::Simple::Declare undef
       Router::Simple::Route undef
       Router::Simple::SubMapper undef
     requirements:
+      CPAN::Meta 0
+      CPAN::Meta::Prereqs 0
       Class::Accessor::Lite 0.05
+      ExtUtils::CBuilder 0
       List::Util 0
       Module::Build 0.38
-      Test::More 0.98
+      Scalar::Util 0
       parent 0
-      perl 5.00800
+      perl 5.008_001
   Router-Simple-Sinatraish-0.03
     pathname: T/TO/TOKUHIROM/Router-Simple-Sinatraish-0.03.tar.gz
     provides:
